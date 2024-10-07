@@ -1,24 +1,27 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const UserContributionsSchema = new mongoose.Schema({
-    likes: [{type: mongoose.Schema.ObjectId, ref: 'User'}],
+const UserContributionsSchema = new mongoose.Schema(
+  {
+    likes: [{ type: mongoose.Schema.ObjectId, ref: "User" }],
     liked: {
-        type: Boolean,
-        default: false,
+      type: Boolean,
+      default: false,
     },
     bookmark: {
-        type: Boolean,
-        default: false,
+      type: Boolean,
+      default: false,
     },
     user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
     },
     snippets: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Snippet',
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Snippet",
     },
-    bookmarks: [{type: mongoose.Schema.ObjectId, ref: 'User'}],
-},{timestamps: true});
+    bookmarks: [{ type: mongoose.Schema.ObjectId, ref: "User" }],
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model('UserContributions', UserContributionsSchema);
+module.exports = mongoose.model("UserContributions", UserContributionsSchema);

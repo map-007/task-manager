@@ -1,63 +1,68 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const SnippetSchema = new mongoose.Schema({
+const SnippetSchema = new mongoose.Schema(
+  {
     title: {
-        type: String,
-        required: true,
-        trim: true,
-        required: true,
-        minlength: 3,
+      type: String,
+      required: true,
+      trim: true,
+      required: true,
+      minlength: 3,
     },
     code: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     language: String,
     icon: String,
     likes: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
-    likedBy: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
+    likedBy: [{ type: mongoose.Schema.ObjectId, ref: "User" }],
     slug: {
-        type: String,
-        unique: true,
-        index: true
+      type: String,
+      unique: true,
+      index: true,
     },
     mtitle: {
-        type: String,
+      type: String,
     },
     bookmark: {
-        type: Boolean,
-        default: false,
+      type: Boolean,
+      default: false,
     },
     mdesc: {
-        type: String,
+      type: String,
     },
     public: {
-        type: Boolean,
-        default: false,
+      type: Boolean,
+      default: false,
     },
     photo: {
-        data: Buffer,
-        contentType: String,
+      data: Buffer,
+      contentType: String,
     },
-    categories:[{
+    categories: [
+      {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category',
+        ref: "Category",
         required: true,
-    }],
+      },
+    ],
     tags: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Tags',
-            required: true,
-        }
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Tags",
+        required: true,
+      },
     ],
     postedBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-    }
-}, { timestamps: true });
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model('Snippet', SnippetSchema)
+module.exports = mongoose.model("Snippet", SnippetSchema);
