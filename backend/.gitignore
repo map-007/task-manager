@@ -1,7 +1,25 @@
-node_modulues
-./node_modules/.bin/webpack --config webpack.config.js
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
 ./node_modules
+
+# Dependency directories
+/.pnp/
+.pnp.js
+
+# Testing
+/coverage/
+
+# Production build
+/build/
+
+# Environment variables
 .env
-README.md
-webpack.config.js
-```
+
+# IDEs and editors
+/.idea/
+/.vscode/
+*.sublime-*
+*.swp
