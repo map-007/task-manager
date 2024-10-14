@@ -1,4 +1,5 @@
 "use client";
+import { useUserContext } from "@/context/userContext";
 import IconCheck from "@/public/icons/IconCheck";
 import IconDeleteAll from "@/public/icons/IconDeleteAll";
 import IconFileCheck from "@/public/icons/IconFileCheck";
@@ -10,6 +11,7 @@ import { usePathname } from "next/navigation";
 import React from "react";
 
 function MiniSidebar() {
+  const { user } = useUserContext();
   const pathname = usePathname();
 
   const getStrokeColor = (link: string) => {
@@ -38,7 +40,7 @@ function MiniSidebar() {
       link: "/overdue",
     },
   ];
-  return (
+  return user.email ? (
     <div className="basis-[5rem] flex flex-col bg-[#f9f9f9]">
       <div className="flex items-center justify-center h-[5rem]">
         <Image src="/logo.png" width={28} height={28} alt="logo" />
@@ -65,7 +67,7 @@ function MiniSidebar() {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 }
 
 export default MiniSidebar;
